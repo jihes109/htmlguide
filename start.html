@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>html study</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>html study</title>
+
+    <!-- <link rel="import" href="header.html" id="header" /> -->
+    <script src="js/header.js"></script>
+
+    <!-- 공통 header.html 불러오기 -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#header").load("header.html"); // 원하는 파일 경로를 삽입하면 된다
+      });
+    </script>
+  </head>
+  <body>
+    <header id="header"></header>
+
+    <h2>vscode 프로젝트 생성방법</h2>
+    <ol>
+      <li>로컬에 개발 파일을 임의로 만듦</li>
+      <li>vs code에서 open으로 폴더를 열어(맨위에)</li>
+      <li>
+        폴더가 열리면 우측에 폴더, 파일 추가가 생김, .html 등 확장자를 넣어
+        제목을 붙여주면 그대로 파일이 생성됨
+      </li>
+      <li>
+        html화면에서 마우스 우측 open with live server 하면 go live가 실행됨~
+      </li>
+    </ol>
+  </body>
+</html>

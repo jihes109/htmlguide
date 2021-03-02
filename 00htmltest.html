@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!-- 웹접근성 언어설정해줘야해/ -->
+  <head>
+    <title>html study</title>
+    <meta charset="utf-8" />
+    <!-- 꼭 지정해줘야해, 한글로 보여주겠다는거
+      &lt; &gt; < > -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>html study</title>
+  </head>
+
+  <body>
+
+
+    <h1 id="top">텍스트를 묶어주는 태그</h1>
+    <hr />
+    <h2>타이틀밑에 언더라인은 &lt;hr/&gt; 로 수평줄만들기</h2>
+    <br />
+
+    <blockquote>
+      &lt;blockquote&gt; 인용문을 넣는 내용, 다른 텍스트보다 안으로 들여써짐
+    </blockquote>
+    <p>p는 일반 텍스트</p>
+    <pre>pre 입력한 그대로 표시하는 태그, 텍스트 효과를 안먹네, 반응형 적용도 안됨</pre>
+
+    <br />
+    <br />
+
+
+    <h1>텍스트를 한줄로 표시하는 태그</h1>
+    <hr />
+    <strong>strong 중요한 텍스트이고 <mark>mark로 형광펜 효과</mark></strong>
+    <b
+      >b는 단순히 굵게 표시할때
+      <span style="color: blue">
+        인라인으로 효과줄때는 span, 줄바꿔 블록 단락으로 묶는건 div</span
+      ></b
+    >
+    <em>em 이탤릭-흐름상 특정부분을 강조하고 싶을때 </em>
+    <i>i 이탤릭-단순히 이탤릭체로 표시할때</i>
+    <q cite="www.naver.com"
+      >q는 인용내용 표시, 앞뒤로 따옴표가 생기고 줄바꿈이 없음</q
+    >
+    <p>
+      p: 글자에 주석줄때는 ruby 안에 내용과 rt에 주석내용을 같이 넣기
+      <span style="color: blue">
+        <ruby>ruby<rt>rt</rt></ruby>
+      </span>
+    </p>
+
+    <br />
+    <br />
+
+
+
+    <h1>목록을 만드는 태그</h1>
+    <hr />
+
+    <h2>ul>li, ol>li</h2>
+    <ul>
+      <li>
+        순서없는 ul 1번목록, 앞에 점으로 표시됨
+
+        <ol>
+          <li>순서가 필요한 ol 1번목록</li>
+          <li>앞에 숫자나</li>
+          <li>알파벳으로 넣을 수 있음</li>
+        </ol>
+      </li>
+
+      <li>
+        순서없는 ul2번, 리스트는 ul, ol 둘다 li로 지정함
+
+        <ol type="A" start="4">
+          <li>리스트 시작순서는 start="4"로 지정</li>
+          <li>앞에붙는 문자 스타일은 type="a"</li>
+          <li>type="A"</li>
+        </ol>
+      </li>
+    </ul>
+
+    <h2>dl>dt>dd</h2>
+    <dl>
+      <dt>dl>dt 제목과 그에대한 설명으로 이루어진 목록
+        <dd>dl>dt>dd</dd>
+        <dd>dd는 들여쓰기됨</dd>
+        <dd>설명목록</dd>
+      </dt>
+      <dt>두번째 dt
+        <dd>dl>dt>dd</dd>
+        <dd>텍스트</dd>
+        <dd>설명목록</dd>
+      </dt>
+    </dl>
+
+
+    <h2>table>tr>th,td</h2>
+
+    <figure id="table" > 
+      <figcaption>figcaption은 테이블 밖에서 캡션 붙일때</figcaption>
+    <table style="border:1px solid black; border-collapse:separate; border-spacing: 40px 20px; width:1080px; table-layout: fixed; text-align: center; vertical-align: center;">
+      <colgroup>
+        <col>
+        <!-- 첫번째 칼럼은 속성이 안들어가니까 기본 코드 col로 지정해줌, span은 몇개의 칼럼을 설정할지 -->
+      <col span="2" style="background-color:pink;"> 
+    </colgroup>
+      <caption>table>caption 바로밑에 캡션 붙여야해, 아래로 위치 바꾸는 속성은 { caption-side:bottom}</caption>
+      <thead>
+        <tr style="border:1px dashed black">
+          <td>thead 제목</td>
+          <td>tbody 본문</td>
+          <td>tfoot 요약</td>
+          <td colspan="2">colspan</td>
+          <td>rowspan</td>
+        </tr>
+      </thead>
+      <tbody>
+
+      <tr style="border:1px dashed black">
+        <th>tbody</th>
+        <td>figure은 좌측정렬이고 맨 밑에 넣을 수 있어서 다양하게 사용 가능</td>
+        <td>table</td>
+        <td>tr</td>
+        <td>th,td</td>
+        <td rowspan="2">rowspan 합칠 행의 갯수</td>
+      </tr>
+      <tr style="border:1px dashed black">
+        <th>th는 중앙정렬, 진하게 표시됨</th>
+        <td>caption은 중앙정렬 타이틀로 붙네</td>
+        <td> border="1"</td>
+        <td colspan="2">colspan 합칠 열의 갯수</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr style="border:1px dashed black">
+        <td colspan="6">tfoot빼고 슬라이드를 하는 등 효과를 줄 수 있음</td>
+      </tr>
+    </tfoot>
+    </table>
+    <p>colgroup으로 컬럼 색상 정해줘 colgroup>col span="2" style="background-color:~~" </p>
+    <p>표의 바깥 테두리와 셀테두리 모두 border설정해줄수있음, table {} , table td { border:1px dotted black}</p>
+    <pre>border-collapse:collapse : 서로 이웃하는 테이블이나 셀의 테두리선을 겹쳐서 표현 합니다.
+border-collapse:separate : 기본값으로 서로 이웃하는 테이블이나 셀의 테두리선을 분리시켜 표현 합니다./ 테이블 컨텐츠사이에 간격줄때 설정해야함</pre>
+    <!-- <figcaption>figcaption은 테이블 밖에서 캡션 붙일때</figcaption> -->
+  </figure>
+
+  <br>
+  <br>
+
+
+  <h1>기능</h1>
+  <hr />
+
+  <h2>이미지</h2>
+  <figure>
+    <figcaption>이미지에 캡션붙일때도 figure>figcaption, 이걸로 하면 좌우 여백생김</figcaption>
+  <img src="assets/images/ic-sample2-board02.png" alt="웹접근성 설명글">
+</figure>
+
+
+<h2>하이퍼링크</h2>
+<a href="https://www.naver.com" target="_blank"> target:현재창, 새창 download:다운로드 주소이다 rel:링크한 문서와의 관계 hreflang:링크문서의 언어 지정 type:파일유형</a>
+<p><mark>_blank: 새창이나 새탭</mark> _self:기본값으로 링크가 있는 화면 _parent:링크 내용을 부모 프레임에 표시 top:프레임을 사용했을 때 프레임을 벗어나 링크내용을 전체화면에 표시</p>
+ 
+<br>
+
+<h2>앵커 #id 와 연결</h2>
+<ul>
+  <li><a href="#table">테이블로 이동</a></li>
+  <li><a href="#top">맨위로 이동</a></li>
+</ul>
+
+<br>
+
+<h2>이미지앱, 이미지에 영역 정해서 버튼처리하기</h2>
+<img src="assets/images/01logo-mockup05.jpg" alt="이랜딩으로가기" usemap="#eventMap">
+<map name="eventMap">
+<area shape="circle" coords="585,540,80" href="https://www.elanding.co.kr" alt="이랜딩으로 가기" target="_blank">
+<area shape="rect" coords="1100,300, 1600,700" href="https://www.elanding.co.kr" alt="이랜딩으로 가기" target="_blank">
+</map>
+<p>img밑에 클릭할 map을 만들어서 id로 연결해줘야해, area로 연결할 위치(좌측위x,y,우측아래x,y로 설정해줌</p>
+
+<br>
+<br>
+
+
+<h1>form</h1>
+<hr />
+<h2>기본 input 요소들</h2>
+<form action="" method="POST">
+<fieldset>
+  <legend>폼 요소를 fieldset 그룹으로 묶어 제목을 legend로 붙임</legend> 
+  <!-- legend 를 class ="blind" 로 숨길 수 있음 -->
+ <label for="id">아이디(6자이상)  레이블안에 인풋을 넣었어 <input type="text" id="id" autofocus></label>
+<label for="user-id">비밀번호(6자이상) 레이블과 인풋을 따로 생성함 *필수</label>
+<input type="password" id="user-id" maxlength="10" required placeholder="******">
+<label for="user-search">검색은 x가 자동으로 생성됨</label><input type="search" id="user-search" placeholder="검색어 입력">
+<textarea name="" id="" cols="30" rows="10" placeholder="textarea"></textarea>
+
+<ul>
+  <li>
+    <label for="user-num">type="number" 최소값 1로 설정</label>
+<input type="number" id="user-num" value="1" min="1" max="10" step="1">
+  </li>
+  <li>
+    <label for="user-stuffs">type="number" 5개씩 올라가게 설정</label>
+<input type="number" id="user-stuffs" value="5" min="0" max="50" step="5" size="5">
+  </li>
+  <li>
+    <label for="user-range">type="user-range"</label>
+<input type="range" id="user-range"  value="1" min="1" max="3">
+  </li>
+</ul>
+</fieldset>
+
+<br>
+
+<fieldset>
+  <legend>radio/checkbox</legend>
+  <p>한가지만 선택할때는 radio를 쓰고 name을 공통항목으로 가져가야 total한개값만 가져가</p>
+  <label > <input type="radio" name="oneselect" value="selectdata1">선택된 1값</label>
+  <label > <input type="radio" name="oneselect" value="selectdata2">선택된 2값</label>
+  <label > <input type="radio" name="oneselect" value="selectdata3">선택된 3값</label>
+
+  <p>복수선택할때는 checkbox</p>
+  <label> <input type="checkbox" name="check1" value="checkdata1">체크된 1값</label>
+  <label> <input type="checkbox" name="check2" value="checkdata2">체크된 2값</label>
+  <label> <input type="checkbox" name="check3" value="checkdata3">체크된 3값</label>
+
+
+  <p>시간선택</p>
+  <label> <input type="date" id="start"></label>
+  <label> <input type="date" id="end"></label>
+  <label> <input type="time" id="start-time"></label>
+  <label> <input type="time" id="end-time"></label>
+  <label> <input type="datetime-local"></label>
+</fieldset>
+
+<br>
+
+<fieldset>
+  <legend>여러데이터 나열해 보여주기</legend>
+  <label for="selectoption">select와 optiongroup, 옵션이 한정적이야</label>
+<select name="" id="selectoption">
+  <optgroup label="옵션그룹1">
+  <option value="selectoption1" selected>value="selectoption1"</option>
+  <option value="selectoption2">value="selectoption2"</option>
+  <option value="selectoption3">value="selectoption3"</option>
+  <option value="selectoption4">value="selectoption4"</option>
+  <option value="selectoption5">value="selectoption5"</option>
+</optgroup>
+<optgroup label="옵션그룹2">
+  <option value="selectoption6" >value="selectoption1"</option>
+  <option value="selectoption7">value="selectoption2"</option>
+  <option value="selectoption8">value="selectoption3"</option>
+  <option value="selectoption9">value="selectoption4"</option>
+  <option value="selectoption10">value="selectoption5"</option>
+</optgroup>
+</select>
+
+
+<label for="datalist">자동완성기능 데이타리스트, 사용자가 데이터를 자유롭게 입력할 수 있음</label>
+<input type="text" name="" id="datalist" list="choices">
+<datalist id="choices">
+  <option value="value:datalist1" label="label:데이터1"></option>
+  <option value="datalist2" label="데이터2"></option>
+  <option value="datalist3" label="데이터3"></option>
+  <option value="datalist4" label="데이터4"></option>
+  <option value="datalist5" label="데이터5"></option>
+</datalist>
+
+
+</fieldset>
+
+<!-- <button type="submit">내용(제출)</button> 아래 인풋 submit보다 버튼에 hover, img등 속성을 주기 편함 -->
+<input type="submit" value="제출">
+<input type="reset" value="다시입력">
+<input type="image" id="" src="assets/images/ic-plus.png" alt="submit대신 이미지 삽입">
+
+</form>
+
+<h2>계산결과를 브라우저에 표시</h2>
+<form action=""
+oninput="result.value=parseInt(num1.value)+parseInt(num2.value)">
+<input type="number" name="num1" value="0">
++<input type="number" name="num2" value="0">
+=<output name="result" for="num"></output>
+
+
+<fieldset>
+  <legend>progress</legend>
+  <label > 10초 남음/ progress 작업 진행 상태를 브라우저에 표시 </label>
+<progress value="50" max="60"></progress>
+<label > progress 진행률 30%</label>
+<progress value="30" max="100"></progress>
+<label > meter 전체 크기중에서 얼마나 차지하는지 표현/디스크사용량, 유권자투표율 등</label>
+<meter min="0" max="100" value="64"></meter>
+<label > meter 트래픽 초과</label>
+<meter min="1024" max="10240" low="2048" high="8192" value="9216"></meter>
+<label > meter 적절한 트래픽,optimum이 적당한 값, 전체기준은 1</label>
+<meter value="0.5" optimum="0.8"></meter>
+</fieldset>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!-- 웹접근성 언어설정해줘야해/ -->
+  <head>
+    <title>html study</title>
+    <meta charset="utf-8" />
+    <!-- 꼭 지정해줘야해, 한글로 보여주겠다는거
+      &lt; &gt; < > -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>html study</title>
+    <!-- <link rel="stylesheet" type="text/css" href="css/reset.css" /> -->
+    <style>
+      /* 여러번 사용하는 스타일은 .class로 지정하고 한번만 사용한다면 #id로 정의
+      캐스캐이딩 스타일 시트css 우선순위 /; 인라인 스타일> id > class > tag 스타일순서
+      브라우저 접두사 자동 -prefix-free.js 사파리, 파이어폭스, iE대응할때
+      font-weight:400보통, 700=bold:진하게, 너무진하면 600해줌
+      글자간 간격, 단어간 간격 letter-spacing:0.2em, word-spacing:0.5em
+      */
+      /* p의 전체에 적용할거야 */
+      p * {
+        font-size: 14px;
+      }
+      p.white-space {
+        letter-spacing: 0.2em;
+        word-spacing: 0.5em;
+        text-indent: 10%;
+        line-height: 2;
+
+        background-clip: content-box;
+        background-color: aliceblue;
+        /* 글자크기의 2배 */
+      }
+      ul {
+        /* list-style-type: none; */
+      }
+      p > span {
+        text-decoration: underline;
+      }
+      .shadow {
+        text-shadow: 1px 5px 10px red;
+      }
+      .white-space {
+        /* white-space: pre-wrap; */
+        padding: 40px;
+      }
+      .inside {
+        list-style-position: inside;
+      }
+      .outside {
+        list-style-type: none;
+        list-style-position: outside;
+        /* list-style: none, outside; */
+      }
+      .bg-gradation {
+        height: 40px;
+        /* 맨위는 지원하지 않는 브라우저용 , 선형그라데이션, wevkit은 시작점을 설정하고, 다른 브라우저는 끝나는 지점을 설정해줘야함*/
+        background: rgb(152, 152, 255);
+        background: -webkit-linear-gradient(
+          left bottom,
+          rgb(152, 152, 255),
+          white
+        );
+        background: -moz-linear-gradient(
+          right bottom,
+          rgb(152, 152, 255),
+          white
+        );
+        background: -o-linear-gradient(right bottom, rgb(152, 152, 255), white);
+        background: linear-gradient(right bottom, rgb(152, 152, 255), white);
+      }
+      .bg-gradation-deg {
+        height: 40px;
+        /* 공통으로 사용하기에는 각도설정이 편하네, 0,90,180, 270 시계방향으로 설정 */
+        background: #2bd7a3;
+        background: -webkit-linear-gradient(45deg, #2bd7a3, #ffffff);
+        background: -moz-linear-gradient(45deg, #2bd7a3, #ffffff);
+        background: -o-linear-gradient(45deg, #2bd7a3, #ffffff);
+        background: linear-gradient(45deg, #2bd7a3, #ffffff);
+      }
+      .bg-gradation-add {
+        height: 40px;
+        /* 중간에 색 넣기, 색이랑 중지 점의 위치도 함께 지정할 수 있음, 브라우저마다 코드가 다름 */
+        background: #f8c10c;
+        background-image: -webkit-linear-gradient(
+          top,
+          #f8c10c,
+          white 30%,
+          #f8c10c
+        );
+        background-image: -moz-linear-gradient(
+          bottom,
+          #f8c10c,
+          white 30%,
+          #f8c10c
+        );
+        background: -o-linear-gradient(bottom, #f8c10c, white 30%, #f8c10c);
+        background: linear-gradient(to bottom, #f8c10c, white 30%, #f8c10c);
+      }
+      .bg-gradation-radial {
+        height: 80px;
+        /* 최종모양, 크기 at 위치, 칼러 */
+        background: tomato;
+        background: -webkit-radial-gradient(10% 10%, circle, white, tomato);
+        background: -moz-radial-gradient(10% 10%, circle, white, tomato);
+        background: -o-radial-gradient(10% 10%, circle, white, tomato);
+        background: radial-gradient(
+          circle at 10% 10%,
+          white,
+          yellow 40%,
+          tomato
+        );
+      }
+      .bg-gradation-pattern {
+        height: 80px;
+        background: cornflowerblue;
+        background: -webkit-repeating-linear-gradient(
+          #e4e4e4,
+          #e4e4e4 20px,
+          rgb(205, 205, 205) 20px,
+          rgb(205, 205, 205) 40px
+        );
+        background: -moz-repeating-linear-gradient(
+          #e4e4e4,
+          #e4e4e4 20px,
+          rgb(205, 205, 205) 20px,
+          rgb(205, 205, 205) 40px
+        );
+        background: -o-repeating-linear-gradient(
+          #e4e4e4,
+          #e4e4e4 20px,
+          rgb(205, 205, 205) 20px,
+          rgb(205, 205, 205) 40px
+        );
+        /* background: repeating-radial-gradient 라운드로 주는것도 가능 */
+        background: repeating-linear-gradient(
+          #e4e4e4,
+          #e4e4e4 20px,
+          rgb(205, 205, 205) 20px,
+          rgb(205, 205, 205) 40px
+        );
+      }
+      .box1 {
+        height: 40px;
+        /* border-style: dotted; */
+        border: 2px dotted tomato;
+        border-radius: 20px;
+      }
+      .box2 {
+        height: 40px;
+        border-style: solid;
+        border-width: 5px 10px 15px 20px;
+      }
+      .img-box {
+        color: white;
+        height: 300px;
+        width: 300px;
+        border: 2px solid tomato;
+        border-radius: 20px;
+      }
+      #img-divbg {
+        background: url(assets/images/img-bg-galuxy.png) no-repeat;
+        background-size: cover;
+      }
+      .box-round {
+        height: 300px;
+        width: 300px;
+        border-style: solid;
+        border-top-left-radius: 120px 80px;
+        border-bottom-right-radius: 20% 40%;
+      }
+      .box-shadow {
+        height: 300px;
+        width: 300px;
+        box-shadow: -2px -2px 15px 20px rgba(0, 0, 0, 0.105);
+      }
+      .column {
+        /* column-width: 200px;
+        break-before:column; */
+        column-count: 5;
+        column-rule: 2px dotted #000;
+      }
+      input:checked + span {
+        /* 체크된 인풋의 첫번째 span텍스트를 변경하라 */
+        color: blue;
+      }
+      ul.navi > li {
+        display: inline-block;
+        border: 2px solid tomato;
+      }
+      ul.navi li:first-child {
+        border-top-left-radius: 1em;
+        border-bottom-left-radius: 1em;
+      }
+      ul.navi li:last-child {
+        border-top-right-radius: 1em;
+        border-bottom-right-radius: 1em;
+      }
+
+      .text1::before {
+        content: "important messege";
+        color: red;
+        font-weight: bold;
+      }
+      .text1::after {
+        content: url(assets/images/ic-plus.png)
+          "::after 돔에 입력되지 않고 단순히 보여지는 부분";
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>시멘틱태그, 역할에 맞게 사용해야하는 태그</h2>
+    <ul>
+      <li>header: form으로 search영역을 넣기도 함, 상단 또는 왼쪽에</li>
+      <li>
+        nav : 같은 사이트 안의 문서나 다른 사이트의 문서로 연결하는 링크를
+        나타냄, 푸터에 있는 사이트 링크 모음부분에도 사용됨
+      </li>
+      <li>
+        본문 section : 주제별로 컨텐츠를 묶을 때, 섹선 제목을 나타내는 h2 이런
+        태그와 함께 사용
+      </li>
+      <li>
+        본문 article : 컨텐츠 내용, 이부분만 떼어내 독립적으로 배포하거나 재사용
+        하더라도 완전한 하나의 컨텐츠
+      </li>
+      <li>
+        aside ; 본문 이외의 내용, 사이드 광고배너 같은 것들, 방문기록,
+        내프로필을 알려주는 좌우 사이드의 부가적 요소
+      </li>
+      <li>
+        iframe : 외부문서 삽입 &lt;iframe src="주소"&gt;&lt;/iframe&gt;, 안에
+        들어있는 내용을 따로 만들어서 호출하는 형태, 이부분만 수정할 수 있는
+        장점이 있음
+      </li>
+      <li>address : 푸터에 회사정보 넣을때 쓰는 시멘틱태그</li>
+      <li>
+        div는 컨텐츠를 묶어 시각적 효과를 적용할때, 즉 컨텐츠에 css를 적용할 떄
+        사용, 시멘틱태그로 틀을 잡고 div로 컨텐츠를 만듦
+      </li>
+    </ul>
+
+    <p>
+      ie8이하에서 시맨틱태그를 사용하려면 html5shiv라는 js파일을 받아서 호환할
+      수 있음
+    </p>
+
+    <br />
+
+    <h2>CSS선택자</h2>
+
+    <fieldset>
+      <legend>컴비네이션 선택자</legend>
+      <ul>
+        <li>section a {} 하위 선택자</li>
+        <li>section > p {} 자식 선택자</li>
+        <li>h1 + ul {} h1 인접형제선택자 다음에 오는 첫번째 ul에만 적용</li>
+        <li>h1 ~ ul {} h1 형제선택자 다음에 오는 전체 ul 모두에게 적용</li>
+        <li>
+          a[href] {} 속성선택자 a 태그 중 href 속성이 있는 요소를 찾아내 배경색
+          지정
+        </li>
+        <li>
+          a[target="_blank"] {} 속성=값 선택자, 주어진 속성과 속성값이 일치하는
+          요소를 찾아 스타일 적용
+        </li>
+        <li>
+          [class ~= "button"] {} 속성~= 값 선택자, class 속성 값에 button
+          class가 포함된 요소에 적용
+        </li>
+        <li>
+          a[title l= "us"] {} a의 title에 us라는 단어가 있으면 적용, us- 가능,
+          use는 불가능, 하이픈까지만 적용됨
+        </li>
+        <li>
+          a[title ^= "eng"] {} a의 title 값이 title="english" eng로 시작될 때
+          적용
+        </li>
+        <li>
+          a[href $= "xls"] {} a의 href값이 xls로 끝날때 적용, 주로 확장자 hwp,
+          jpg등에 사용됨
+        </li>
+        <li>
+          a[href *= "w3"] {} 값의 일부가 일치하는 속성을 가진 요소를 찾음,
+          a태그의 href중에 w3텍스트가 포함된 곳에 적용
+        </li>
+      </ul>
+    </fieldset>
+
+    <br />
+
+    <fieldset>
+      <legend>가상 클래스와 가상 요소</legend>
+      <ul>
+        <li>:link 방문하지 않은 링크에 스타일 적용 / 파란색으로 표시되는곳</li>
+        <li>
+          :visited 방문한 링크에 스타일 적용 / 자주색으로 표시됨 > hover >
+          active순으로 적용
+        </li>
+        <li>
+          :enabled, :disabled 요소를 사용할 수 있을 떄와 없을때의 스타일 지정
+        </li>
+        <li>
+          :checked 선택되었을 때 변하게 하는거
+          <label
+            ><input type="radio" name="subject" value="math" /><span
+              >radio를 선택하면 첫번째 span의 text color가 바뀜 input:checked +
+              span</span
+            ></label
+          >
+        </li>
+        <li>
+          div p:nth-child(3) div요소 안에서 세번째 자식요소인 p요소에 스타일
+          적용
+        </li>
+        <li>
+          div p:nth-child(odd), div p:nth-child(2n+1) <mark>홀수</mark> 자식
+          p요소에 스타일 적용
+        </li>
+        <li>
+          div p:nth-child(even), div p:nth-child(2n+0), div p:nth-child(2n)
+          <mark>짝수</mark>
+          번째로 나타나는 자식요소인 p요소에 스타일 적용
+        </li>
+        <li>
+          p:nth-of-type(2) <mark>p 들중에서</mark> 2번째 p에 적용할거야,
+          :nth-last-of-type(n) 뒤에서부터 n번째 요소 != p:nth-child(2)는 p부모의
+          2번째 요소인 p에 적용하겠다는거라서 달라 \
+        </li>
+        <li>
+          <ul class="navi">
+            <li class="home"><a href="#"> ul.navi li:first-child </a></li>
+            <li id="html"><a href="#">html</a></li>
+            <li id="css"><a href="#">css</a></li>
+            <li id="jquery"><a href="#"> ul.navi li:last-child </a></li>
+          </ul>
+        </li>
+      </ul>
+      <p class="text1">text1::before::after공부</p>
+    </fieldset>
+
+    <br />
+
+    <h2>택스트 꾸미기</h2>
+    <p>text decoration <span> text-decoration: underline;</span></p>
+    <h1 class="shadow">text-shadow</h1>
+    <p class="white-space">
+      코딩한 그대로 텍스트를 보여주는건 white-space:pre-wrap; 으로 설정해야해
+      브라우저 접두사 자동 -prefix-free.js 사파리, 파이어폭스, iE대응할때
+      font-weight:400보통, 700=bold:진하게, 너무진하면 600해줌 글자간 간격,
+      단어간 간격 letter-spacing:0.2em, word-spacing:0.5em text-indent: 10%;
+      문단의 첫글자를 얼마나 앞으로 들여쓸지
+    </p>
+
+    <h2>리스트 스타일 list-style-type, position</h2>
+    <ul>
+      <li>list앞에 점 없애기 list-style-type: none;</li>
+      <li>list-style-type:circle</li>
+      <li>list-style-type:upper-alpha ol리스트에서 순서 표기하는방법 수정</li>
+      <li>list-style-image:url() 리스트 앞에 이미지로 표시하기</li>
+      <li class="inside">inside</li>
+      <li class="outside">outside</li>
+    </ul>
+
+    <br />
+
+    <h2>박스테두리</h2>
+    <div style="display: flex">
+      <div class="box1">border: 2px dotted black;</div>
+      <div class="box2">
+        border-style: solid; border-width: 5px 10px 15px 20px;
+      </div>
+      <div class="img-box" id="img-divbg">
+        이미지 영역 만들기 background: url(assets/images/img-bg-galuxy.png)
+        no-repeat; background-size: cover;
+      </div>
+      <div class="box-round">
+        라운드 직접 코드로 그리기, 가로크기 세로크기 각각 설정해주는 방법
+      </div>
+      <div class="box-shadow">
+        그림자박스 box-shadow: -2px -2px 15px 20px rgba(0, 0, 0, 0.105);
+        <p>안쪽 그림자설정은 box-shadow: inset 5em 1em gold;</p>
+      </div>
+    </div>
+
+    <br />
+
+    <h2>CSS 주요속성</h2>
+    <p>
+      box-sizing:border-box : box에 컨텐츠, 패딩, 테두리를 합한 사이즈를
+      지정할때
+    </p>
+    <p>box-sizing:content-box : 컨텐츠 영역만 박스로 지정할 때</p>
+    <p>float:right : 우측으로 배치</p>
+    <p>
+      float:left 다음에 오는 항목을 clear:both하면 기존에 css가 리셋되고 박스
+      속성으로 바뀜
+    </p>
+    <p>
+      position:relative / 자연스럽게 배치, 고정되어있지않고 다른요소에 의해 바뀔
+      수 있다, 상대적인 위치를 사용, left나 top속성을 이용해 이동가능
+    </p>
+    <p>
+      position:absolut / 부모는 relative설정을 가지고 있어야 위치를 잡을 수
+      있음, top:0; left:0; 로 지정
+    </p>
+    <p>
+      position:fixed/ 브라우저 기준으로 좌표를 입력해야함 top:5px; right:5px; 로
+      적용
+    </p>
+    <p>
+      visibility:hidden; 요소의 위치를 유지함, display:none;은 요소위치까지
+      숨겨짐
+    </p>
+    <p>
+      z-index : 숫자가 클수록 레이어가 위로 올라옴, z-index그룹을 relative로
+      설정해줘야함
+    </p>
+
+    <br />
+
+    <h2>다단으로 편집(신문처럼)) 전체를 div로 묶어서 설정</h2>
+    <div class="column">
+      <p>
+        column-width : 가로 크기로 설정하고 width가 넓어지면 3~5개 로 많아짐
+      </p>
+      <p>
+        column-count: 숫자, auto 설정한 갯수만큼만 단이 나눠짐 (화면분할 갯수는
+        고정)
+      </p>
+      <p>column-rule: 2px dotted #000 좌우 사이에 라인만들기</p>
+      <p>
+        태그 기준으로 분할하고 싶을 때 div h3{break-before:column;} 으로 하면
+        h3기준으로 한줄한줄 나눠짐
+      </p>
+    </div>
+
+    <br />
+
+    <h2>그라데이션 설정, 방향/각도</h2>
+    <div class="bg-gradation">
+      bg-gradation, 선형그라데이션, wevkit은 시작점을 설정하고, 다른 브라우저는
+      끝나는 지점을 설정해줘야함
+    </div>
+    <div class="bg-gradation-deg">
+      bg-gradation-deg, 공통으로 사용하기에는 각도설정이 편하네, 0,90,180, 270
+      시계방향으로 설정
+    </div>
+    <div class="bg-gradation-add">
+      bg-gradation-add, 중간에 색 넣기, 색이랑 중지 점의 위치도 함께 지정할 수
+      있음, 브라우저마다 코드가 다름
+    </div>
+    <div class="bg-gradation-radial">
+      bg-gradation-radial, 원형으로 그라데이션 넣으며 브라우저마다 코드가 다름,
+      그라데이션 원형 크기지정 farthest-corner(기본값)
+    </div>
+    <div class="bg-gradation-pattern">
+      bg-gradation-pattern, 그라데이션으로 패턴을 만들어서 반복하기
+    </div>
+
+    <h2>html로 마케팅용 메일 만들기</h2>
+    <div style="text-align: center; background: #f2f2f2; padding: 100px">
+      <table>
+        <tr>
+          <td>
+            <img src="assets/images/icon-process-05.png" alt="" />
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              background-clip: content-box;
+              background: white;
+              /* box-shadow: 0 20px 20px rgba(0, 0, 0, 0.4); */
+              box-shadow: inset 5em 1em gold, inset -3em -1em tomato;
+            "
+          >
+            <p>
+              css는 인라인 스타일로 지정하고, html4에 만족할 수 있는 기능을
+              제공해야 99% 브라우저, 환경에 대응할 수 있음, table로 구성하는게
+              옛방식이지만 좋음 네이버 메일에 html을 복사하여 전송할 수 있음.
+              최신기술보다 한단계 아래 를 써야함, 이미지는 서버에 올려두고
+              가져다 써야함, 배경은 컨텐츠 영역만 주기위해 background-clip:
+              content-box속성 적용
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!-- 웹접근성 언어설정해줘야해/ -->
+  <head>
+    <title>html study</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>html study</title>
+    <!-- <link rel="stylesheet" type="text/css" href="css/reset.css" /> -->
+
+    <style>
+      /* 모든 상황에서 똑같이 사용할 스타일 */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #fff;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+      h2 {
+        font-size: 1.3em;
+      }
+      p {
+        font-size: 1.3em;
+        line-height: 2.5;
+      }
+      li {
+        font-size: 1em;
+        line-height: 2;
+      }
+      /* 모바일 767px 이하 */
+
+      #container {
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      #container section:nth-child(odd) {
+        background: #eee;
+      }
+      header {
+        width: 100%;
+        height: 300px;
+        background: url(assets/images/img-bg-galuxy.png) center no-repeat;
+        background-size: cover;
+        margin: 0;
+      }
+
+      nav {
+        height: 50px;
+        background: #000;
+      }
+      #main-nav {
+        list-style: none;
+        margin: 0;
+        padding: 10px;
+      }
+
+      #main-nav li {
+        display: inline-block;
+        font-size: 0.8em;
+        margin: 5px 15px;
+      }
+      #main-nav li a,
+      #main-nav li a:visited {
+        color: #fff;
+      }
+      section {
+        position: relative;
+        width: 100%;
+        /* padding: 40px 0; */
+        padding: 15px 5% 10px 5%;
+      }
+
+      .page-title {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        padding: 30px 50px;
+      }
+
+      .page-title h1 {
+        margin-bottom: 30px;
+      }
+
+      .content {
+        margin: 80px auto 10px;
+        box-sizing: border-box;
+        width: 90%;
+        padding: 20px;
+      }
+
+      .content ol {
+        padding-left: 20px;
+        margin-top: 20px;
+      }
+      .photo {
+        display: none;
+      }
+      footer {
+        position: relative;
+        width: 100%;
+        height: 100px;
+        background: #000;
+        color: #fff;
+      }
+      /* 768 이상 태블릿 */
+      @media screen and (min-width: 768px) {
+        header {
+          height: 400px;
+        }
+        #intro,
+        #map {
+          box-sizing: border-box;
+          width: 50%;
+          height: 400px;
+          float: left;
+          margin: 0;
+          border: 1px dotted #ccc;
+        }
+        #reco {
+          /* 앞에서 float:left를 해줘서 left를 삭제하는 코드야, 밑으로 떨어짐 */
+          clear: left;
+        }
+      }
+      /* 992 이상 pc */
+      @media screen and (min-width: 992px) {
+        #container {
+          width: 995px;
+          margin: 0 auto;
+          border: 1px solid #ccc;
+        }
+        header {
+          height: 500px;
+        }
+        #intro,
+        #map,
+        #reco {
+          box-sizing: border-box;
+          clear: both;
+          position: relative;
+          width: 100%;
+          height: 420px;
+          padding: 15px 2% 10px 5%;
+        }
+        .content {
+          margin: 80px auto 10px;
+          width: 90%;
+          padding: 20px;
+        }
+        .photo {
+          width: 42%;
+          display: block;
+        }
+        .photo > img {
+          width: 40%;
+          max-width: 320px;
+          height: auto;
+          margin-bottom: 30px;
+        }
+        .text {
+          width: 42%;
+        }
+        #intro .photo,
+        #map .photo {
+          float: left;
+          margin-right: 5%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <!-- nav포함 상단은 header로 지정 -->
+      <header>
+        <nav>
+          <ul id="main-nav">
+            <li><a href="#intro">카페소개</a></li>
+            <li><a href="#reco">이달의 추천</a></li>
+            <li><a href="#map">오시는 길</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section id="intro">
+        <div class="page-title">
+          <h1>카페소개</h1>
+        </div>
+        <div class="content">
+          <div class="photo">
+            <img src="assets/images/icon-process-05.png" alt="목업이미지" />
+          </div>
+          <div class="text">
+            <p>영업시간: 오전 9시~밤 11시</p>
+            <p>휴무</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="map">
+        <div class="page-title">
+          <h1>오시는 길</h1>
+        </div>
+        <div class="content">
+          <div class="photo">
+            <img src="assets/images/logo-text.png" alt="로고이미지" />
+          </div>
+          <div class="text">
+            <p>서울시 강서구 등촌동</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="reco">
+        <div class="page-title">
+          <h1>이달의 추천</h1>
+        </div>
+        <div class="content">
+          <div class="photo">
+            <img src="assets/images/ic-winner.png" alt="로고이미지" />
+          </div>
+          <div class="text">
+            <p>핸드드립 아이스 커피</p>
+            <ol>
+              <li>1인분 기준으로 한다</li>
+              <li>2인분 기준으로 한다</li>
+              <li>3인분 기준으로 한다</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <footer>사업자 등록번호</footer>
+    </div>
+  </body>
+</html>

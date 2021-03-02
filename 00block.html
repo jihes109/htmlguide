@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!-- 웹접근성 언어설정해줘야해/ -->
+  <head>
+    <title>html study</title>
+    <meta charset="utf-8" />
+
+    <!-- 꼭 지정해줘야해, 한글로 보여주겠다는거
+      &lt; &gt; < > -->
+    <!-- viewpart 실제 내용이 표시되는 영역, 디바이스 넓이만큼 설정해줌 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>html study</title>
+    <!-- <link rel="stylesheet" type="text/css" href="css/reset.css" /> -->
+    <style>
+      .display-flex > .origin > div > img {
+        width: 100px;
+      }
+
+      .movex:hover {
+        transform: translateX(50px);
+      }
+
+      .movey:hover {
+        transform: translatey(50px);
+      }
+
+      .movexy:hover {
+        transform: translate(10px, 20px);
+      }
+
+      .scalex:hover {
+        transform: scaleX(1.2);
+      }
+      .scaley:hover {
+        transform: scaley(1.2);
+      }
+      .scale3d:hover {
+        transform: scale3d(1.2, 1.2, 2);
+      }
+      .rotate1:hover {
+        transform: rotate(45deg);
+      }
+      .rotate2:hover {
+        transform: rotate(-45deg);
+      }
+      .rotatey:hover {
+        transition-timing-function: ease-in-out;
+        transition-duration: 1s;
+        transform: rotateY(45deg);
+      }
+      .rotatexyz:hover {
+        transition-timing-function: ease-in-out;
+        transition-duration: 1s;
+        transform: rotate3d(2.1, 1.2, -1.5, 45deg);
+      }
+      .display-flex {
+        display: flex;
+      }
+      .skewx:hover {
+        transform: skewX(30deg);
+      }
+      .skewxy:hover {
+        transform: skew(30deg, -20deg);
+      }
+      .rotate {
+        perspective: 200px;
+      }
+      .tr1 {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        transition-property: width, height;
+        transition-duration: 1s, 2s;
+        transition-timing-function: ease-in-out;
+      }
+      .tr1:hover {
+        /* transition-duration: 1s, 2s; 앞이 width시간 뒤가 height시간; */
+        width: 200px;
+        height: 200px;
+      }
+
+      /* 애니메이션 css */
+      .keyframe1 {
+        width: 400px;
+        height: 100px;
+        background-color: antiquewhite;
+      }
+
+      .keyframe1:hover {
+        animation-name: change-bg;
+        animation-duration: 3s;
+        /* 4번실행하고 alternate를 줘야 들어갔다 나왔다 들어갔다 나왔다 2세트가 실행됨 */
+        animation-iteration-count: 4;
+        animation-direction: alternate;
+      }
+      @keyframes change-bg {
+        from {
+          background-color: yellowgreen;
+          border: 1px solid black;
+        }
+        to {
+          background-color: rgb(255, 201, 25);
+          border: 1px solid blue;
+          border-radius: 50%;
+        }
+      }
+
+      .keyframe2 {
+        width: 60px;
+        height: 60px;
+        margin: 60px;
+        animation: rotate 1.5s infinite, bg 1.5s infinite alternate;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        }
+        50% {
+          transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+        }
+        to {
+          transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+        }
+      }
+
+      @keyframes bg {
+        from {
+          background: tomato;
+        }
+        50% {
+          background-color: green;
+        }
+        to {
+          background-color: aqua;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>텍스트 h2, p는 블록레벨이구나</h2>
+    <p>블록레벨요소는 혼자 한줄을 차지해서 밑으로 떨어지는 요소</p>
+    <p>
+      인라인 레벨 요소는 우측에 계속 컨텐츠가 붙음
+      <span><mark>span 은 인라인 요소</mark></span>
+    </p>
+
+    <ul>
+      <li>인라인 요소 : 이미지</li>
+      <li>블럭 요소 : 텍스트 태그 h2, p, li,</li>
+      <li>display:block; 인라인 요소를 블럭화함</li>
+      <li>
+        display:inline; 블럭요소를 인라인으로 바꿔서 우측으로 떨어지게 수정함
+      </li>
+      <li>
+        display:inline-block; 요소를 인라인 레벨로 배치하면서 내용에는 블록레벨
+        속성을 지정, padding, margin등 안에서 속성지정할 때 inline과 다르게
+        사용함
+      </li>
+    </ul>
+
+    <br />
+
+    <h2>hover 하면 transform, translateX / scaleX / rotate, rotate3d / skew</h2>
+    <section class="display-flex">
+      <div class="origin">
+        <div class="movex">
+          <img src="assets/images/icon-process-01.png" alt="" />
+        </div>
+      </div>
+
+      <div class="origin">
+        <div class="movey">
+          <img src="assets/images/icon-process-02.png" alt="" />
+        </div>
+      </div>
+
+      <div class="origin">
+        <div class="movexy">
+          <img src="assets/images/icon-process-03.png" alt="" />
+        </div>
+      </div>
+
+      <div class="origin">
+        <div class="scalex">
+          <img src="assets/images/icon-process-04.png" alt="" />
+        </div>
+      </div>
+
+      <div class="origin">
+        <div class="scaley">
+          <img src="assets/images/icon-process-05.png" alt="" />
+        </div>
+      </div>
+
+      <div class="origin">
+        <div class="scale3d">
+          <img src="assets/images/icon-process-06.png" alt="" />
+        </div>
+      </div>
+
+      <div class="origin">
+        <div class="rotate1">
+          <img src="assets/images/icon-process-05.png" alt="" />
+        </div>
+      </div>
+
+      <div class="origin">
+        <div class="rotate2">
+          <img src="assets/images/icon-process-06.png" alt="" />
+        </div>
+      </div>
+
+      <!-- rotate에       perspective: 200px; 해줬어 기준선인듯 -->
+      <div class="origin rotate">
+        <div class="rotatey">
+          <img src="assets/images/icon-process-03.png" alt="" />
+        </div>
+      </div>
+
+      <div class="origin">
+        <div class="rotatexyz">
+          <img src="assets/images/icon-process-04.png" alt="" />
+        </div>
+      </div>
+
+      <div class="origin">
+        <div class="skewx">
+          <img src="assets/images/icon-process-01.png" alt="" />
+        </div>
+      </div>
+
+      <div class="origin">
+        <div class="skewxy">
+          <img src="assets/images/icon-process-02.png" alt="" />
+        </div>
+      </div>
+    </section>
+    <ul>
+      <li>
+        transform-origin : x축,y축,z축 initial inherit 특정 지점을 기준으로 회전
+        또는 변형 transform-origin:left bottom;
+      </li>
+      <li>
+        perspective: 크기 ㅣ none; 원근감을 갖게함, 0보다 커야하며 값이 클수록
+        사용자로부터 멀어짐
+      </li>
+      <li>
+        perspective-origin:x축 ㅣ y축 ; 입체적으로 표현할 요소의 아랫부분 위치
+        지정, 원근감을 줄때 기준점
+      </li>
+      <li>
+        trasform-style : flat 하위 요소를 평면으로 처리함, preserve-3d; 하위
+        요소들에 3d 효과를 같이 적용함
+      </li>
+      <li>
+        backface-visibility : visible 은 뒷면을 보이게 할거야, hidden은 보이지
+        않게
+      </li>
+      <li>
+        trasform:scale(2) perspective(120px) rotateX(180deg) 크기를 2배
+        확대하면서 x축 기준으로 180도 회전
+      </li>
+    </ul>
+
+    <br />
+
+    <h2>트랜지션</h2>
+    <ul>
+      <li>
+        transition-property :all l background-color l width, height 입력된 값만
+        트랜지션 할거야
+      </li>
+      <li>
+        <div class="tr1"></div>
+        transition-duration :2s , 1s 진행시간 설정, 시간단위는 s/ms
+      </li>
+      <li>
+        transition-timing-function:linear l ease l ease-in l ease-out 등 시작과
+        중간, 끝에서의 속도 지정
+      </li>
+      <li>transition-delay: 1s 트랜지션이 언제부터 시작될지 지연시간 지정</li>
+    </ul>
+
+    <h2>keyframe 애니메이션</h2>
+
+    <ul>
+      <li>
+        @keyframe name { from{} to{}} 로 설정, 0/50/100%으로도 설정 가능
+        <div class="keyframe1">
+          <span>
+            4번실행하고 alternate를 줘야 들어갔다 나왔다 들어갔다 나왔다 2세트가
+            실행됨<br />
+            animation-iteration-count: 4; <br />
+            animation-direction: alternate;</span
+          >
+        </div>
+      </li>
+      <li>animation-duration:2s 2초동안 진행할거야</li>
+      <li>animation-name 으로 @keframe 이름과 연결</li>
+      <li>
+        animation-direction: alternate; normal; 끝나고 원위치로 돌아가거나
+        반대방향으로 애니메이션 실행
+      </li>
+      <li>animation-iteration-count:2; infinite; 애니메이션 반복횟수 지정</li>
+      <li>
+        animation-timing-function:linear; ease; ease-in-out; 애니메이션 속도
+        곡선 지정
+      </li>
+      <li>
+        <h2>
+          기본형 animation : animation-name , animation-duration(필수) ,
+          animation-timing-function, animation-delay , animarion-direction,
+          animation-iteration-count
+        </h2>
+
+        animation : moving 3s alternate infinite ease-in
+      </li>
+      <li>
+        animation: <mark>rotate</mark> 1.5s infinite, <mark>bg</mark> 1.5s
+        infinite alternate;
+        <div class="keyframe2"></div>
+      </li>
+    </ul>
+
+    <h2>반응형 웹 디자인</h2>
+    <p>
+      화면 너비 값에 따라 960그리드, 1200그리드 사용함. 주로 960 12칼럼 사용함,
+      네비 : body, 940, 60/860, 140/780 , 220/700 (좌우 10px 패딩)
+    </p>
+    <p>
+      body 를 #wrapper로 감싸서 적용, width100%, margin:0 auto;, 좌우 컨텐츠에는
+      float:left, float:right로 구분 footer에는 clear:both; 속성을 꼭 주시네
+    </p>
+    <p>max-width:100%; height:auto로 설정</p>
+    <p>
+      고해상도의 이미지 지정 img src="일반적인 이미지 루트"
+      <mark>srcset</mark>="고해상도 이미지 루트.jpg 2x"
+    </p>
+    <h2>해상도 별로 다른 이미지 출력하고 싶을때 feat.미디어쿼리설정</h2>
+    <p>
+      화면 넓이에 따라 다른 이미지 파일 표시할때는 picture와 source태그 사용
+      <br />&lt; pictuer &gt; <br />&lt; source srcset="이미지경로.large.jpg"
+      media="(min-width:1024px)" &gt; <br />&lt; source
+      srcset="이미지경로.medium.jpg" media="(min-width:768px)" &gt; <br />&lt;
+      source srcset="이미지경로.small.jpg" media="(min-width:320px)" &gt;
+      <br />&lt; img src="일반경로.jpg" alt="설명" style="width:100%" &gt;
+      <br />&lt; / pictuer &gt;
+    </p>
+    <p>
+      <strong
+        >미디어쿼리 @media screen and (min-width:100px) and
+        (max-width:360px){}</strong
+      >
+    </p>
+    <p>
+      스마트폰 세로 min-width:320px 스마트폰 가로 min-width:480px 태블릿 세로
+      min-width:768px, 태블릿 가로, 데스크톱 min-width:1024px
+    </p>
+    <p>
+      <strong> 외부 css 파일 연결은 link 또는 import</strong> <br />
+      link rel="stylesheet" media="screen and (max-width:768px)"
+      href="css/tablet.css" (링크는 head에 삽입해야함) 화면 넓이가 768이하일때
+      적용, <mark>css가 많을때는 링크로 사용</mark> <br />
+      @import url("css/tablet.css") only screen and (min-width:321px) and
+      (max-width768px); (임포트는 style에 삽입) 화면 넓이가 321이상 768이하일 때
+      태블릿 스타일 시트 파일을 적용
+    </p>
+    <p>
+      style태그 안에 @media를 넣어서 쓰기도 함. 화면 너비가 320 이하일 때
+      배경색을 주황색으로 바꿀때는 <br />
+      @media screen and(max-width:320px){ body {background-color:orange}}
+      스타일안에 넣고 사용
+    </p>
+    <br />
+
+    <h2>플렉서블 박스 레이아웃</h2>
+    <ul>
+      <li>
+        flex-dirxtion : row l row-imverse l column l column-inverse 배치하는
+        순서 좌에서 우, 위에서 아래로
+      </li>
+      <li>
+        flex-wrap : no-wrap l wrap l wrap-reverse 화면 영역을 벗어나면 그대로
+        둘지, 아래로 떨어뜨릴지 설정
+      </li>
+      <li>
+        flex-flow : row no-wrap 위에 2개를 합쳐서 하나로 쓰는것 , 플렉스
+        방향/플렉스 줄 배치
+      </li>
+      <li>order:1 지정된 순서에 따라 배치됨</li>
+      <li>
+        justify-content : flex-start, space-around 좌우 정렬, 시작점에 맞추기,
+        간격 일정하게 띄우기
+      </li>
+      <li>
+        align-items: stretch l baseline 상하 정렬, 위아래 풀로 맞추기, 가장큰
+        박스를 위에 붙이고 다른컨텐츠는 박스기준 중앙정렬
+      </li>
+      <li>
+        align-content는 여러줄로 표시될 떄 교차축 기준의 배치방법인데 이해가 잘
+        안됨
+      </li>
+      <li>
+        flex 속성 flex:1 1 0 ; flex : 2 2 0; (2배 늘이거나 2배 줄임), 1:2 비율로
+        줄어들고 늘어남, 설정 안하면 그 영역은 width가 고정, 기본값은 flex:0 1
+        auto;
+      </li>
+    </ul>
+
+    <br />
+    <h2>웹과 멀티미디어</h2>
+    <!-- <object
+      data="assets/images/movie.MP4"
+      type=""
+      width="720px"
+      height="480px"
+    ></object>
+    <embed src="assets/images/movie.MP4" type="" width="720px" height="480px" /> -->
+
+    <audio
+      src="assets/images/music.mp3"
+      controls
+      loop
+      poster="assets/images/01logo-img-logogridfull01.png"
+    ></audio>
+    <!-- <video src="assets/images/movie.MP4" controls autoplay></video>
+   브라우저마다 재생하는 영상이 다르기 때문에 여러가지 소스를 등록해줘야해
+  poster은 음악이나 영상이 재생되지 않을 때 대신 표시하는 이미지를 설정함 
+자동재생 autoplay-->
+    <video controls width="100%" style="max-width: 100%" loop>
+      <source src="assets/images/movie.MP4" type="video/mp4" />
+      <source src="assets/images/movie.webm" type="video/webm" />
+      <source src="assets/images/movie.ogv" type="video/ogv" />
+    </video>
+  </body>
+</html>
