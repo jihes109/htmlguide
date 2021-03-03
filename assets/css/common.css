@@ -1,0 +1,64 @@
+:root {
+  --main-bg-color: lightsalmon;
+  /* --sub-bg-color: #t; */
+  --main-text-color: #222222;
+  --sub-text-color: #666666;
+  --gray-color: #ebecee;
+  --red-color: tomato;
+  --darkgray-color: #3a3e52;
+  --midgray-color: rgb(158, 175, 196);
+  --color: rgb(249, 154, 38);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: rgb(240, 240, 240);
+  font-size: 1em;
+  word-break: break-all;
+}
+.height-s {
+  /* height: 100vh; */
+  /* height: calc(100vh-257px); */
+}
+section {
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 4px 10px 0px rgba(77, 77, 77, 0.1);
+}
+.contents-wrap {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 100px; /* footer height */
+}
+
+#footer {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: var(--main-text-color);
+  /* position: absolute; */
+  bottom: 0;
+  color: var(--main-bg-color);
+  padding: 20px;
+}
+ol,
+ul {
+  line-height: 2em;
+}
+.font-l {
+  font-size: 1.2em;
+}
+.font-m {
+  font-size: 1em;
+}
+.font-s {
+  font-size: 0.9em;
+}
+.title:first-child {
+  color: var(--main-bg-color);
+  font-family: "Jua", sans-serif;
+}

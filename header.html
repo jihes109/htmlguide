@@ -12,28 +12,39 @@
         padding-inline-start: 0px !important;
         text-decoration: none;
       }
-      a,
-      a:visited {
+      a[class="btn-nav"],
+      a[class="btn-nav"]:visited {
+        background-color: rgb(230, 230, 230);
         color: black;
         text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 10px;
       }
-      a:hover {
-        color: tomato;
+      a[class="btn-nav"]:hover {
+        color: white;
+        background-color: lightsalmon;
       }
       .header-nav > li {
-        background-color: aliceblue;
+        margin-right: 4px;
         display: inline-block;
-        margin-right: 10px;
-        padding: 10px 20px;
+        margin-bottom: 16px;
       }
     </style>
   </head>
   <body>
     <nav>
       <ul class="header-nav">
-        <li><a href="start.html" id="nav1">프로젝트 만들기</a></li>
-        <li><a href="00htmltest.html" id="nav2">태그설명</a></li>
-        <li><a href="00mediaquery.html" id="nav3">미디어쿼리</a></li>
+        <li>
+          <a class="btn-nav" href="01main.html" id="nav1"
+            >1. VScode 프로젝트 만들기</a
+          >
+        </li>
+        <li>
+          <a class="btn-nav" href="02tag.html" id="nav2">2. 태그설명</a>
+        </li>
+        <!-- <li>
+          <a class="btn-nav" href="00mediaquery.html" id="nav3">미디어쿼리</a>
+        </li> -->
       </ul>
     </nav>
   </body>
